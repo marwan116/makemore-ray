@@ -1,0 +1,23 @@
+auth:
+  ssh_user: ubuntu
+available_node_types:
+  head_node:
+    node_config:
+      ImageId: ami-032a22dd6280fbf04
+      InstanceType: c5.xlarge
+  worker_nodes:
+    node_config:
+      ImageId: ami-032a22dd6280fbf04
+      InstanceType: c5.xlarge
+cluster_name: ray-tune-cluster
+head_node_type: head_node
+max_workers: 3
+min_workers: 0
+provider:
+  region: us-west-2
+  type: aws
+setup_commands:
+- sudo apt-get update
+- sudo apt-get install python-is-python3
+- pip3 install pip --upgrade
+- pip3 install ray[air] torch pandas tensorboard
